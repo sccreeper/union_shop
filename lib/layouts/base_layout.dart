@@ -9,13 +9,69 @@ class BaseLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(child: Text("Menu")),
+            ListTile(
+              title: const Text("Home"),
+              onTap: () => context.go("/"),
+            ),
+            ExpansionTile(
+              title: const Text("Shop"),
+              children: [
+                ListTile(
+                  title: const Text("Clothing"),
+                  onTap: () {},
+                ),
+                ListTile(
+                  title: const Text("Merchandise"),
+                  onTap: () {},
+                ),
+                ListTile(
+                  title: const Text("Halloween"),
+                  onTap: () {},
+                ),
+                ListTile(
+                  title: const Text("Signature & Essential range"),
+                  onTap: () {},
+                ),
+                ListTile(
+                  title: const Text("Portsmouth City Collection"),
+                  onTap: () {},
+                ),
+                ListTile(
+                  title: const Text("Pride Collection"),
+                  onTap: () {},
+                ),
+                ListTile(
+                  title: const Text("Graduation"),
+                  onTap: () {},
+                )
+              ],
+            ),
+            ListTile(title: const Text("The Print Shack"), onTap: () {}),
+            ListTile(
+              title: const Text("Sale"),
+              onTap: () {},
+            ),
+            ListTile(
+              title: const Text("About"),
+              onTap: () {},
+            ),
+            ListTile(
+              title: const Text("About"),
+              onTap: () {},
+            )
+          ],
+        ),
+      ),
       body: LayoutBuilder(
         builder: (context, constraints) {
           return SingleChildScrollView(
             child: ConstrainedBox(
-              constraints: BoxConstraints(
-                minHeight: constraints.maxHeight
-              ),
+              constraints: BoxConstraints(minHeight: constraints.maxHeight),
               child: Column(
                 children: [
                   Container(
@@ -34,7 +90,7 @@ class BaseLayout extends StatelessWidget {
                             style: TextStyle(color: Colors.white, fontSize: 16),
                           ),
                         ),
-              
+
                         // Main header
                         Expanded(
                           child: Container(
@@ -119,7 +175,9 @@ class BaseLayout extends StatelessWidget {
                                           minWidth: 32,
                                           minHeight: 32,
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () {
+                                          Scaffold.of(context).openDrawer();
+                                        },
                                       ),
                                     ],
                                   ),
@@ -138,7 +196,7 @@ class BaseLayout extends StatelessWidget {
                     ),
                     child: child,
                   ),
-              
+
                   // Footer
                   Container(
                     width: double.infinity,
