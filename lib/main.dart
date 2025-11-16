@@ -12,6 +12,14 @@ final _router = GoRouter(
     GoRoute(
       path: '/product',
       builder: (context, state) => ProductPage(),
+    ),
+    GoRoute(
+      path: '/collection/:collectionId',
+      builder: (context, state) => ProductPage(),
+    ),
+    GoRoute(
+      path: '/collections',
+      builder: (context, state) => ProductPage(),
     )
   ]
 );
