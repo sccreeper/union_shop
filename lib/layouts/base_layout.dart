@@ -204,14 +204,34 @@ class BaseLayout extends StatelessWidget {
                     width: double.infinity,
                     color: Colors.grey[50],
                     padding: const EdgeInsets.all(24),
-                    child: const Text(
-                      'Placeholder Footer',
-                      style: TextStyle(
-                        color: Colors.grey,
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                      ),
-                    ),
+                    child: Column(
+                      spacing: 8.0,
+                      children: [
+                        Column(
+                          spacing: 4.0,
+                          children: [
+                            Text("Opening Hours", style: TextTheme.of(context).titleMedium),
+                            const Text("Term Time\nMonday - Friday 9am - 4pm"),
+                            const Text("Outside of Term Time\nMonday - Friday 9am - 3pm"),
+                            const Text("Purchase online 24/7"),
+                          ],
+                        ),
+                        Column(
+                          spacing: 4.0,
+                          children: [
+                            Text("Help and information", style: TextTheme.of(context).titleMedium,),
+                            TextButton(
+                              onPressed: () => context.go("/search"), 
+                              child: const Text("Search")
+                            ),
+                            TextButton(
+                              onPressed: () => {}, 
+                              child: const Text("Terms & Conditions of Sale Policy")
+                            )
+                          ],
+                        )
+                      ],
+                    )
                   ),
                 ],
               ),
