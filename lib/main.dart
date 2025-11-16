@@ -3,6 +3,7 @@ import 'package:union_shop/layouts/base_layout.dart';
 import 'package:union_shop/views/product_page.dart';
 import 'package:go_router/go_router.dart';
 import 'views/home.dart';
+import 'views/about.dart';
 
 final _router = GoRouter(routes: [
   ShellRoute(
@@ -11,6 +12,10 @@ final _router = GoRouter(routes: [
         GoRoute(
           path: '/',
           builder: (context, state) => HomeScreen(),
+        ),
+        GoRoute(
+          path: '/about',
+          builder: (context, state) => AboutPage(),
         ),
         GoRoute(
           path: '/product',

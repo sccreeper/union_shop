@@ -16,7 +16,10 @@ class BaseLayout extends StatelessWidget {
             const DrawerHeader(child: Text("Menu")),
             ListTile(
               title: const Text("Home"),
-              onTap: () => context.go("/"),
+              onTap: () {
+                Navigator.pop(context);
+                context.go("/");
+              },
             ),
             ExpansionTile(
               title: const Text("Shop"),
@@ -58,12 +61,11 @@ class BaseLayout extends StatelessWidget {
             ),
             ListTile(
               title: const Text("About"),
-              onTap: () {},
+              onTap: () {
+                Navigator.pop(context);
+                context.go("/about");
+              },
             ),
-            ListTile(
-              title: const Text("About"),
-              onTap: () {},
-            )
           ],
         ),
       ),
