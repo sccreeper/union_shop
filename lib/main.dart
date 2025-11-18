@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/layouts/base_layout.dart';
+import 'package:union_shop/views/collections_page.dart';
 import 'package:union_shop/views/product_page.dart';
 import 'package:go_router/go_router.dart';
 import 'views/home.dart';
@@ -18,7 +19,7 @@ final _router = GoRouter(routes: [
           builder: (context, state) => AboutPage(),
         ),
         GoRoute(
-          path: '/product',
+          path: '/product/:productId',
           builder: (context, state) => ProductPage(),
         ),
         GoRoute(
@@ -27,7 +28,7 @@ final _router = GoRouter(routes: [
         ),
         GoRoute(
           path: '/collections',
-          builder: (context, state) => ProductPage(),
+          builder: (context, state) => CollectionsPage(),
         )
       ])
 ]);

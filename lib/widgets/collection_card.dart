@@ -3,6 +3,8 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+const collectionCardTitleStyle = TextStyle(color: Colors.white, fontWeight: FontWeight.w500, fontSize: 24);
+
 class CollectionCard extends StatelessWidget {
   final String title;
   final String id;
@@ -20,7 +22,7 @@ class CollectionCard extends StatelessWidget {
     return GestureDetector(
       onTap: () => context.go('/collection/$id'),
       child: SizedBox(
-        height: 50,
+        height: 100,
         child: Stack(
           fit: StackFit.expand,
           children: [
@@ -31,7 +33,11 @@ class CollectionCard extends StatelessWidget {
               ),
               child: Image(image: backgroundImage, fit: BoxFit.cover,),
             ),
-            Text(title, style: const TextStyle(color: Colors.white, height: 24),)
+            Center(
+              child: Text(
+                title, 
+                style: collectionCardTitleStyle,)
+            ),
           ],
         ),
       ),

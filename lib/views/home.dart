@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:union_shop/widgets/product_card_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -73,7 +74,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 32),
                     ElevatedButton(
-                      onPressed: placeholderCallbackForButtons,
+                      onPressed: () { context.go("/collections"); },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF4d2963),
                         foregroundColor: Colors.white,

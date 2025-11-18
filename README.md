@@ -9,7 +9,7 @@ Repository containing the code for the Flutter Coursework as part of the *Progra
 - [x] Static Navbar (5%) - [Reference](https://shop.upsu.net/)
 - [x] About Us Page (5%) - [Reference](https://shop.upsu.net/pages/about-us)
 - [x] Footer (4%) - [Reference](https://shop.upsu.net/)
-- [ ] Dummy Collections Page (5%) - [Reference](https://shop.upsu.net/collections/)
+- [x] Dummy Collections Page (5%) - [Reference](https://shop.upsu.net/collections/)
 - [ ] Dummy Collection Page (5%) - [Reference](https://shop.upsu.net/collections/autumn-favourites)
 - [ ] Dummy Product Page (4%) - [Reference](https://shop.upsu.net/collections/autumn-favourites/products/classic-sweatshirt-1)
 - [ ] Sale Collection (4%) - [Reference](https://shop.upsu.net/collections/sale-items)
