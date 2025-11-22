@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:union_shop/widgets/collection_card.dart';
 
 class CollectionsPage extends StatelessWidget {
+
+  const CollectionsPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Container(

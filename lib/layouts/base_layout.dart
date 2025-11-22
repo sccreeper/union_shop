@@ -26,7 +26,7 @@ class BaseLayout extends StatelessWidget {
               children: [
                 ListTile(
                   title: const Text("Clothing"),
-                  onTap: () {},
+                  onTap: () {context.go("/collection/clothing");},
                 ),
                 ListTile(
                   title: const Text("Merchandise"),
