@@ -151,7 +151,7 @@ class BaseLayout extends StatelessWidget {
                                           minWidth: 32,
                                           minHeight: 32,
                                         ),
-                                        onPressed: () {},
+                                        onPressed: () { context.go("/login"); },
                                       ),
                                       IconButton(
                                         icon: const Icon(

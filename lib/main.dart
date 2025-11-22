@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/layouts/base_layout.dart';
 import 'package:union_shop/views/collections_page.dart';
+import 'package:union_shop/views/login_page.dart';
 import 'package:union_shop/views/product_page.dart';
 import 'package:go_router/go_router.dart';
 import 'views/home.dart';
@@ -29,6 +30,10 @@ final _router = GoRouter(routes: [
         GoRoute(
           path: '/collections',
           builder: (context, state) => CollectionsPage(),
+        ),
+        GoRoute(
+          path: '/login',
+          builder: (context, state) => const LoginPage(),
         )
       ])
 ]);
