@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/layouts/base_layout.dart';
+import 'package:union_shop/models/product.dart';
 import 'package:union_shop/views/collection_page.dart';
 import 'package:union_shop/views/collections_page.dart';
 import 'package:union_shop/views/login_page.dart';
@@ -22,7 +23,13 @@ final _router = GoRouter(routes: [
         ),
         GoRoute(
           path: '/product/:productId',
-          builder: (context, state) => ProductPage(),
+          builder: (context, state) => ProductPage(product: Product(
+            name: "A product", 
+            description: "Some product idk", 
+            rrp: 4.00, 
+            id: "a-product", 
+            productAttributes: {"Size": {"xs":"XS", "s":"S", "m":"M"}}
+          ),),
         ),
         GoRoute(
           path: '/collection/:collectionId',

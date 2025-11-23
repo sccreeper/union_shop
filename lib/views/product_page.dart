@@ -1,15 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/models/product.dart';
 
 class ProductPage extends StatelessWidget {
-  const ProductPage({super.key});
+  final Product product;
 
-  void navigateToHome(BuildContext context) {
-    Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-  }
-
-  void placeholderCallbackForButtons() {
-    // This is the event handler for buttons that don't work yet
-  }
+  const ProductPage({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -64,8 +59,8 @@ class ProductPage extends StatelessWidget {
               const SizedBox(height: 24),
 
               // Product name
-              const Text(
-                'Placeholder Product Name',
+              Text(
+                product.name,
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
@@ -76,9 +71,9 @@ class ProductPage extends StatelessWidget {
               const SizedBox(height: 12),
 
               // Product price
-              const Text(
-                '£15.00',
-                style: TextStyle(
+              Text(
+                "£${product.truePrice.toStringAsFixed(2)}",
+                style: const TextStyle(
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
                   color: Color(0xFF4d2963),
@@ -87,24 +82,77 @@ class ProductPage extends StatelessWidget {
 
               const SizedBox(height: 24),
 
+              // Product attributes
+              if (product.productAttributes.isNotEmpty)
+                ...product.productAttributes.entries.map((attribute) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 16),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          attribute.key,
+                          style: Theme.of(context).textTheme.titleMedium,
+                        ),
+                        const SizedBox(height: 8),
+                        DropdownButtonFormField<String>(
+                          decoration: InputDecoration(
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            contentPadding: const EdgeInsets.symmetric(
+                              horizontal: 16,
+                              vertical: 12,
+                            ),
+                          ),
+                          hint: Text('Select ${attribute.key}'),
+                          items: attribute.value.entries.map((option) {
+                            return DropdownMenuItem<String>(
+                              value: option.key,
+                              child: Text(option.value),
+                            );
+                          }).toList(),
+                          onChanged: (value) {
+                            // Handle selection change
+                          },
+                        ),
+                      ],
+                    ),
+                  );
+                }).toList(),
+
+              const SizedBox(height: 12,),
+
               // Product description
-              const Text(
+              Text(
                 'Description',
-                style: TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.w600,
-                  color: Colors.black,
-                ),
+                style: Theme.of(context).textTheme.titleMedium,
               ),
               const SizedBox(height: 8),
-              const Text(
-                'This is a placeholder description for the product. Students should replace this with real product information and implement proper data management.',
-                style: TextStyle(
+              Text(
+                product.description,
+                style: const TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
                   height: 1.5,
                 ),
               ),
+
+              // Skeleton for quantity to add
+              Text(
+                "Quantity",
+                style: Theme.of(context).textTheme.titleMedium,
+              ),
+              Row(
+                spacing: 4.0,
+                children: [
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
+                  const Text("0"),
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.remove))
+                ],
+              ),
+
+              ElevatedButton(onPressed: () {}, child: Text("Add to cart"))
             ],
           ),
         ),

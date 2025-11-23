@@ -1,11 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:union_shop/models/product.dart';
 import 'package:union_shop/views/product_page.dart';
 
 void main() {
   group('Product Page Tests', () {
     Widget createTestWidget() {
-      return const MaterialApp(home: ProductPage());
+      return MaterialApp(
+          home: ProductPage(
+        product: Product(
+            name: "A product",
+            description: "Some product idk",
+            rrp: 4.00,
+            id: "a-product",
+            productAttributes: {
+              "Size": {"xs": "XS", "s": "S", "m": "M"}
+            }),
+      ));
     }
 
     testWidgets('should display product page with basic elements', (

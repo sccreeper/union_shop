@@ -17,7 +17,7 @@ class ProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.go('/product');
+        context.go('/product/adsad');
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
