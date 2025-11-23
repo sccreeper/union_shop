@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:union_shop/models/product.dart';
 
@@ -8,6 +7,7 @@ class ProductRepository {
 
   static final ProductRepository instance = ProductRepository();
   factory ProductRepository() => instance;
+  // ignore: unused_element
   ProductRepository._internal();
 
   late final Map<String, Product> _products;

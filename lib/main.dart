@@ -17,11 +17,11 @@ final _router = GoRouter(routes: [
       routes: [
         GoRoute(
           path: '/',
-          builder: (context, state) => HomeScreen(),
+          builder: (context, state) => const HomeScreen(),
         ),
         GoRoute(
           path: '/about',
-          builder: (context, state) => AboutPage(),
+          builder: (context, state) => const AboutPage(),
         ),
         GoRoute(
           path: '/product/:productId',
@@ -39,7 +39,7 @@ final _router = GoRouter(routes: [
         ),
         GoRoute(
           path: '/collections',
-          builder: (context, state) => CollectionsPage(),
+          builder: (context, state) => const CollectionsPage(),
         ),
         GoRoute(
           path: '/login',

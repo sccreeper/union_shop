@@ -61,7 +61,7 @@ class ProductPage extends StatelessWidget {
               // Product name
               Text(
                 product.name,
-                style: TextStyle(
+                style: const TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
                   color: Colors.black,
@@ -152,7 +152,7 @@ class ProductPage extends StatelessWidget {
                 ],
               ),
 
-              ElevatedButton(onPressed: () {}, child: Text("Add to cart"))
+              ElevatedButton(onPressed: () {}, child: const Text("Add to cart"))
             ],
           ),
         ),
