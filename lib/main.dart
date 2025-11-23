@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/layouts/base_layout.dart';
 import 'package:union_shop/models/product.dart';
+import 'package:union_shop/repositories/collection_repository.dart';
+import 'package:union_shop/repositories/product_repository.dart';
 import 'package:union_shop/views/collection_page.dart';
 import 'package:union_shop/views/collections_page.dart';
 import 'package:union_shop/views/login_page.dart';
@@ -47,6 +49,9 @@ final _router = GoRouter(routes: [
 ]);
 
 void main() {
+  ProductRepository.instance.loadProducts();
+  CollectionRepository.instance.loadCollections(); // collections repository is dependent on products.
+
   runApp(const UnionShopApp());
 }
 

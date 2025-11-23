@@ -26,4 +26,13 @@ class Product {
   bool get onSale {
     return salePrice == 0.00;
   }
+
+  factory Product.fromJson(Map<String, dynamic> json) => Product(
+    name: json["name"], 
+    description: json["description"], 
+    rrp: json["rrp"],
+    salePrice: json["salePrice"], 
+    id: json["id"], 
+    productAttributes: json["productAttributes"] as Map<String, Map<String, String>>
+  );
 }

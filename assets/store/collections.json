@@ -1,0 +1,7 @@
+[{
+    "id" : "collection-1",
+    "title" : "Title",
+    "description" : "This is a collection.",
+    "products" : ["product-1", "product-2", "product-3"]
+
+}]
