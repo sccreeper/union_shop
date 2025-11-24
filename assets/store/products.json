@@ -1,7 +1,249 @@
 [{
+    "id" : "sweater-1",
+    "name" : "Big Sweater",
+    "description" : "A big comfortable sweater",
+    "rrp" : 10.00,
+    "salePrice" : 0.00,
     "productAttributes" : {
         "size" : {
-            "xl" : "XL"
+            "xl" : "XL",
+            "l" : "L",
+            "m" : "M",
+            "s" : "S",
+            "xs" : "XS"
+        }
+    }
+},
+{
+    "id" : "t-shirt-1",
+    "name" : "UOP T Shirt",
+    "description" : "Cotton fabric T shirt. Machine washable.",
+    "rrp" : 7.50,
+    "salePrice" : 0.00,
+    "productAttributes" : {
+        "size" : {
+            "xl" : "XL",
+            "l" : "L",
+            "m" : "M",
+            "s" : "S",
+            "xs" : "XS"
+        },
+        "color" : {
+            "red" : "Red",
+            "green" : "Green",
+            "blue" : "Blue"
+        }
+    }
+},
+{
+    "id" : "notebook-1",
+    "name" : "University Notebook",
+    "description" : "A5 lined notebook with university logo",
+    "rrp" : 3.50,
+    "salePrice" : 0.00,
+    "productAttributes" : {
+        "color" : {
+            "blue" : "Blue",
+            "red" : "Red",
+            "black" : "Black"
+        }
+    }
+},
+{
+    "id" : "mug-1",
+    "name" : "Campus Mug",
+    "description" : "Ceramic mug perfect for coffee or tea",
+    "rrp" : 6.99,
+    "salePrice" : 5.99,
+    "productAttributes" : {
+        "color" : {
+            "white" : "White",
+            "navy" : "Navy",
+            "burgundy" : "Burgundy"
+        },
+        "size" : {
+            "standard" : "Standard (350ml)",
+            "large" : "Large (500ml)"
+        }
+    }
+},
+{
+    "id" : "pen-set-1",
+    "name" : "Ballpoint Pen Set",
+    "description" : "Pack of 5 ballpoint pens",
+    "rrp" : 2.50,
+    "salePrice" : 0.00,
+    "productAttributes" : {
+        "color" : {
+            "blue" : "Blue Ink",
+            "black" : "Black Ink",
+            "red" : "Red Ink"
+        }
+    }
+},
+{
+    "id" : "water-bottle-1",
+    "name" : "Reusable Water Bottle",
+    "description" : "500ml stainless steel water bottle",
+    "rrp" : 12.00,
+    "salePrice" : 0.00,
+    "productAttributes" : {
+        "color" : {
+            "blue" : "Blue",
+            "red" : "Red",
+            "black" : "Black",
+            "silver" : "Silver"
+        }
+    }
+},
+{
+    "id" : "tote-bag-1",
+    "name" : "Canvas Tote Bag",
+    "description" : "Eco-friendly canvas tote with university branding",
+    "rrp" : 8.50,
+    "salePrice" : 7.00,
+    "productAttributes" : {
+        "color" : {
+            "natural" : "Natural",
+            "navy" : "Navy",
+            "black" : "Black"
+        }
+    }
+},
+{
+    "id" : "scarf-1",
+    "name" : "University Scarf",
+    "description" : "Knitted scarf in university colors",
+    "rrp" : 15.00,
+    "salePrice" : 0.00,
+    "productAttributes" : {
+        "pattern" : {
+            "striped" : "Striped",
+            "solid" : "Solid Color"
+        }
+    }
+},
+{
+    "id" : "sticky-notes-1",
+    "name" : "Sticky Notes Set",
+    "description" : "Multicolor sticky notes in various sizes",
+    "rrp" : 4.50,
+    "salePrice" : 0.00,
+    "productAttributes" : {
+        "type" : {
+            "pastel" : "Pastel Colors",
+            "bright" : "Bright Colors",
+            "standard" : "Standard Yellow"
+        }
+    }
+},
+{
+    "id" : "lanyard-1",
+    "name" : "ID Lanyard",
+    "description" : "University branded lanyard with ID holder",
+    "rrp" : 3.00,
+    "salePrice" : 0.00,
+    "productAttributes" : {
+        "color" : {
+            "navy" : "Navy",
+            "burgundy" : "Burgundy",
+            "black" : "Black"
+        }
+    }
+},
+{
+    "id" : "badge-pin-1",
+    "name" : "Enamel Pin Badge",
+    "description" : "Collectible enamel pin with university crest",
+    "rrp" : 4.00,
+    "salePrice" : 3.50,
+    "productAttributes" : {
+        "design" : {
+            "crest" : "University Crest",
+            "mascot" : "Mascot",
+            "motto" : "Motto"
+        }
+    }
+},
+{
+    "id" : "planner-1",
+    "name" : "Academic Year Planner",
+    "description" : "12-month planner for organizing coursework",
+    "rrp" : 11.50,
+    "salePrice" : 0.00,
+    "productAttributes" : {
+        "color" : {
+            "navy" : "Navy",
+            "grey" : "Grey",
+            "burgundy" : "Burgundy"
+        },
+        "layout" : {
+            "weekly" : "Weekly Layout",
+            "daily" : "Daily Layout"
+        }
+    }
+},
+{
+    "id" : "keychain-1",
+    "name" : "University Keychain",
+    "description" : "Metal keychain with university logo",
+    "rrp" : 5.00,
+    "salePrice" : 0.00,
+    "productAttributes" : {
+        "material" : {
+            "metal" : "Metal",
+            "leather" : "Leather"
+        }
+    }
+},
+{
+    "id" : "cap-1",
+    "name" : "Baseball Cap",
+    "description" : "Adjustable baseball cap with embroidered logo",
+    "rrp" : 14.00,
+    "salePrice" : 0.00,
+    "productAttributes" : {
+        "color" : {
+            "navy" : "Navy",
+            "black" : "Black",
+            "white" : "White"
+        }
+    }
+},
+{
+    "id" : "folder-1",
+    "name" : "Ring Binder Folder",
+    "description" : "A4 ring binder with university branding",
+    "rrp" : 5.50,
+    "salePrice" : 0.00,
+    "productAttributes" : {
+        "color" : {
+            "blue" : "Blue",
+            "red" : "Red",
+            "black" : "Black",
+            "white" : "White"
+        },
+        "rings" : {
+            "two" : "2-Ring",
+            "four" : "4-Ring"
+        }
+    }
+},
+{
+    "id" : "pencil-case-1",
+    "name" : "Pencil Case",
+    "description" : "Zippered pencil case with multiple compartments",
+    "rrp" : 6.00,
+    "salePrice" : 0.00,
+    "productAttributes" : {
+        "color" : {
+            "navy" : "Navy",
+            "black" : "Black",
+            "grey" : "Grey"
+        },
+        "size" : {
+            "standard" : "Standard",
+            "large" : "Large"
         }
     }
 }]

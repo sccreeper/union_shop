@@ -1,7 +1,30 @@
 [{
-    "id" : "collection-1",
-    "title" : "Title",
-    "description" : "This is a collection.",
-    "products" : ["product-1", "product-2", "product-3"]
-
+    "id" : "clothing-collection",
+    "title" : "Clothing & Apparel",
+    "description" : "Show your university pride with our range of clothing items including sweaters, t-shirts, caps and scarves.",
+    "products" : ["sweater-1", "t-shirt-1", "scarf-1", "cap-1"]
+},
+{
+    "id" : "stationery-collection",
+    "title" : "Stationery Essentials",
+    "description" : "Everything you need for your studies - notebooks, pens, planners, folders and sticky notes.",
+    "products" : ["notebook-1", "pen-set-1", "sticky-notes-1", "planner-1", "folder-1", "pencil-case-1"]
+},
+{
+    "id" : "drinkware-collection",
+    "title" : "Drinkware",
+    "description" : "Stay hydrated and caffeinated with our collection of mugs and water bottles.",
+    "products" : ["mug-1", "water-bottle-1"]
+},
+{
+    "id" : "accessories-collection",
+    "title" : "Accessories",
+    "description" : "Complete your look with university branded accessories including bags, lanyards, pins and keychains.",
+    "products" : ["tote-bag-1", "lanyard-1", "badge-pin-1", "keychain-1"]
+},
+{
+    "id" : "sale-collection",
+    "title" : "Sale Items",
+    "description" : "Don't miss out on these great deals! Limited time offers on selected products.",
+    "products" : ["mug-1", "tote-bag-1", "badge-pin-1"]
 }]
