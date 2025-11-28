@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/models/product.dart';
+import 'package:union_shop/widgets/slideshow_widget.dart';
 
 class ProductPage extends StatelessWidget {
   final Product product;
@@ -27,32 +28,34 @@ class ProductPage extends StatelessWidget {
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  child: Image.asset(
-                    "assets/images/products/${product.imageNames[0]}.png",
-                    fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        color: Colors.grey[300],
-                        child: const Center(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.image_not_supported,
-                                size: 64,
-                                color: Colors.grey,
+                  child: product.imageNames.length == 1
+                      ? Image.asset(
+                          "assets/images/products/${product.imageNames[0]}.png",
+                          fit: BoxFit.cover,
+                          errorBuilder: (context, error, stackTrace) {
+                            return Container(
+                              color: Colors.grey[300],
+                              child: const Center(
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Icon(
+                                      Icons.image_not_supported,
+                                      size: 64,
+                                      color: Colors.grey,
+                                    ),
+                                    SizedBox(height: 8),
+                                    Text(
+                                      'Image unavailable',
+                                      style: TextStyle(color: Colors.grey),
+                                    ),
+                                  ],
+                                ),
                               ),
-                              SizedBox(height: 8),
-                              Text(
-                                'Image unavailable',
-                                style: TextStyle(color: Colors.grey),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-                    },
-                  ),
+                            );
+                          },
+                        )
+                      : Slideshow(imagePaths: product.imagePaths),
                 ),
               ),
 
@@ -121,7 +124,9 @@ class ProductPage extends StatelessWidget {
                   );
                 }).toList(),
 
-              const SizedBox(height: 12,),
+              const SizedBox(
+                height: 12,
+              ),
 
               // Product description
               Text(
