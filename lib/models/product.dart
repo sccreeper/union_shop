@@ -26,7 +26,7 @@ class Product {
   }
 
   bool get onSale {
-    return salePrice == 0.00;
+    return salePrice != 0.00;
   }
 
   List<String> get imagePaths =>

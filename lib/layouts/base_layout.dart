@@ -35,7 +35,9 @@ class BaseLayout extends StatelessWidget {
             ListTile(title: const Text("The Print Shack"), onTap: () {}),
             ListTile(
               title: const Text("Sale"),
-              onTap: () {},
+              onTap: () {
+                context.go("/collection/sale-items");
+              },
             ),
             ListTile(
               title: const Text("About"),

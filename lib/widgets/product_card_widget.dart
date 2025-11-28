@@ -3,13 +3,9 @@ import 'package:go_router/go_router.dart';
 import 'package:union_shop/models/product.dart';
 
 class ProductCard extends StatelessWidget {
-
   final Product product;
 
-  const ProductCard({
-    super.key,
-    required this.product
-  });
+  const ProductCard({super.key, required this.product});
 
   @override
   Widget build(BuildContext context) {
@@ -44,9 +40,28 @@ class ProductCard extends StatelessWidget {
                 maxLines: 2,
               ),
               const SizedBox(height: 4),
-              Text(
-                "£${product.truePrice.toStringAsFixed(2)}",
-                style: const TextStyle(fontSize: 13, color: Colors.grey),
+              Row(
+                children: [
+                  Text(
+                    "£${product.rrp.toStringAsFixed(2)}",
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: product.onSale ? Colors.grey : Colors.black,
+                      decoration:
+                          product.onSale ? TextDecoration.lineThrough : null,
+                    ),
+                  ),
+                  if (product.onSale) ...[
+                    const SizedBox(width: 4.0,),
+                    Text(
+                      "£${product.salePrice.toStringAsFixed(2)}",
+                      style: const TextStyle(
+                          fontSize: 13,
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold),
+                    )
+                  ]
+                ],
               ),
             ],
           ),
