@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:union_shop/repositories/collection_repository.dart';
 
 class BaseLayout extends StatelessWidget {
   final Widget child;
@@ -23,36 +24,13 @@ class BaseLayout extends StatelessWidget {
             ),
             ExpansionTile(
               title: const Text("Shop"),
-              children: [
-                ListTile(
-                  title: const Text("Clothing"),
-                  onTap: () {context.go("/collection/clothing");},
-                ),
-                ListTile(
-                  title: const Text("Merchandise"),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text("Halloween"),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text("Signature & Essential range"),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text("Portsmouth City Collection"),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text("Pride Collection"),
-                  onTap: () {},
-                ),
-                ListTile(
-                  title: const Text("Graduation"),
-                  onTap: () {},
-                )
-              ],
+              children:
+                CollectionRepository.instance.getCollectionList().map((v) => ListTile(
+                  title: Text(v.title),
+                  onTap: () {
+                    context.go("/collection/${v.id}");
+                  },
+                )).toList(),
             ),
             ListTile(title: const Text("The Print Shack"), onTap: () {}),
             ListTile(

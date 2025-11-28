@@ -25,7 +25,7 @@ class CollectionsPage extends StatelessWidget {
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
             children: CollectionRepository.instance
-                .getCollections()
+                .getCollectionList()
                 .map((v) => CollectionCard(
                     title: v.title,
                     id: v.id,

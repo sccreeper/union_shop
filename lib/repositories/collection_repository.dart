@@ -15,7 +15,7 @@ class CollectionRepository {
     return _collections[key];
   }
 
-  List<Collection> getCollections() {
+  List<Collection> getCollectionList() {
     return _collections.entries.map((v) => v.value).toList();
   }
 

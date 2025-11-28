@@ -6,14 +6,6 @@ import 'package:union_shop/widgets/product_card_widget.dart';
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
-  void navigateToHome(BuildContext context) {
-    Navigator.pushNamedAndRemoveUntil(context, '/', (route) => false);
-  }
-
-  void navigateToProduct(BuildContext context) {
-    Navigator.pushNamed(context, '/product');
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
