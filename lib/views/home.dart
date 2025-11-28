@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:union_shop/repositories/product_repository.dart';
 import 'package:union_shop/widgets/product_card_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -70,7 +71,9 @@ class HomeScreen extends StatelessWidget {
                     ),
                     const SizedBox(height: 32),
                     ElevatedButton(
-                      onPressed: () { context.go("/collections"); },
+                      onPressed: () {
+                        context.go("/collections");
+                      },
                       style: ElevatedButton.styleFrom(
                         backgroundColor: const Color(0xFF4d2963),
                         foregroundColor: Colors.white,
@@ -107,39 +110,15 @@ class HomeScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 48),
                 GridView.count(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  crossAxisCount:
-                      MediaQuery.of(context).size.width > 600 ? 2 : 1,
-                  crossAxisSpacing: 24,
-                  mainAxisSpacing: 48,
-                  children: const [
-                    ProductCard(
-                      title: 'Placeholder Product 1',
-                      price: '£10.00',
-                      imageUrl:
-                          'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                    ),
-                    ProductCard(
-                      title: 'Placeholder Product 2',
-                      price: '£15.00',
-                      imageUrl:
-                          'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                    ),
-                    ProductCard(
-                      title: 'Placeholder Product 3',
-                      price: '£20.00',
-                      imageUrl:
-                          'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                    ),
-                    ProductCard(
-                      title: 'Placeholder Product 4',
-                      price: '£25.00',
-                      imageUrl:
-                          'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-                    ),
-                  ],
-                ),
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    crossAxisCount:
+                        MediaQuery.of(context).size.width > 600 ? 2 : 1,
+                    crossAxisSpacing: 24,
+                    mainAxisSpacing: 48,
+                    children: ProductRepository.instance.productEntries
+                        .map((v) => ProductCard(product: v))
+                        .toList()),
               ],
             ),
           ),

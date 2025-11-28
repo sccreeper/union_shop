@@ -15,7 +15,11 @@ class ProductRepository {
     return _products[key];
   }
 
-  void loadProducts() async {
+  List<Product> get productEntries {
+    return _products.entries.map((v) => v.value).toList();
+  }
+
+  Future<void> loadProducts() async {
 
     String jsonString = await rootBundle.loadString("assets/store/products.json");
     List<dynamic> jsonList = json.decode(jsonString);

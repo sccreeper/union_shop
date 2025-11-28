@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/models/collection.dart';
 import 'package:union_shop/widgets/product_card_widget.dart';
 
 enum FilterByType {
@@ -16,7 +17,9 @@ enum SortByType {
 }
 
 class CollectionPage extends StatelessWidget {
-  const CollectionPage({super.key});
+  final Collection collection;
+
+  const CollectionPage({super.key, required this.collection});
 
   List<DropdownMenuEntry<SortByType>> _buildSortByEntries() {
     List<DropdownMenuEntry<SortByType>> entries = [];
@@ -57,7 +60,7 @@ class CollectionPage extends StatelessWidget {
             child: Column(
               children: [
                 Text(
-                  "Collection 1",
+                  collection.title,
                   style: Theme.of(context).textTheme.headlineLarge,
                 ),
                 const SizedBox(
@@ -100,32 +103,7 @@ class CollectionPage extends StatelessWidget {
             crossAxisCount: 2,
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
-            children: const [
-              ProductCard(
-                title: 'Placeholder Product 1',
-                price: '£10.00',
-                imageUrl:
-                    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-              ),
-              ProductCard(
-                title: 'Placeholder Product 1',
-                price: '£10.00',
-                imageUrl:
-                    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-              ),
-              ProductCard(
-                title: 'Placeholder Product 1',
-                price: '£10.00',
-                imageUrl:
-                    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-              ),
-              ProductCard(
-                title: 'Placeholder Product 1',
-                price: '£10.00',
-                imageUrl:
-                    'https://shop.upsu.net/cdn/shop/files/PortsmouthCityMagnet1_1024x1024@2x.jpg?v=1752230282',
-              ),
-            ],
+            children: collection.products.map((v) => ProductCard(product: v,)).toList()
           )
         ],
       ),

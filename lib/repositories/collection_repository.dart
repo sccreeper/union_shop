@@ -19,7 +19,7 @@ class CollectionRepository {
     return _collections.entries.map((v) => v.value).toList();
   }
 
-  void loadCollections() async {
+  Future<void> loadCollections() async {
     String jsonString = await rootBundle.loadString("assets/store/collections.json");
     List<dynamic> jsonList = json.decode(jsonString);
     List<Map<String, dynamic>> jsonData = jsonList.map((v) => v as Map<String, dynamic>).toList();

@@ -1,30 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:union_shop/models/product.dart';
 
 class ProductCard extends StatelessWidget {
-  final String title;
-  final String price;
-  final String imageUrl;
+
+  final Product product;
 
   const ProductCard({
     super.key,
-    required this.title,
-    required this.price,
-    required this.imageUrl,
+    required this.product
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.go('/product/adsad');
+        context.go("/product/${product.id}");
       },
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Expanded(
-            child: Image.network(
-              imageUrl,
+            child: Image.asset(
+              "assets/images/products/${product.id}.png",
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return Container(
@@ -41,13 +39,13 @@ class ProductCard extends StatelessWidget {
             children: [
               const SizedBox(height: 4),
               Text(
-                title,
+                product.name,
                 style: const TextStyle(fontSize: 14, color: Colors.black),
                 maxLines: 2,
               ),
               const SizedBox(height: 4),
               Text(
-                price,
+                "£${product.truePrice.toStringAsFixed(2)}",
                 style: const TextStyle(fontSize: 13, color: Colors.grey),
               ),
             ],
