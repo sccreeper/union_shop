@@ -4,7 +4,7 @@ import 'package:flutter/services.dart';
 import 'package:union_shop/models/collection.dart';
 
 class CollectionRepository {
-  static final CollectionRepository instance = CollectionRepository();
+  static final CollectionRepository instance = CollectionRepository._internal();
   factory CollectionRepository() => instance;
   // ignore: unused_element
   CollectionRepository._internal();
@@ -15,9 +15,14 @@ class CollectionRepository {
     return _collections[key];
   }
 
+  List<Collection> getCollections() {
+    return _collections.entries.map((v) => v.value).toList();
+  }
+
   void loadCollections() async {
     String jsonString = await rootBundle.loadString("assets/store/collections.json");
-    List<Map<String, dynamic>> jsonData = json.decode(jsonString);
+    List<dynamic> jsonList = json.decode(jsonString);
+    List<Map<String, dynamic>> jsonData = jsonList.map((v) => v as Map<String, dynamic>).toList();
 
     _collections = {};
 

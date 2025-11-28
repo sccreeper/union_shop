@@ -16,8 +16,8 @@ Repository containing the code for the Flutter Coursework as part of the *Progra
 - [x] Authentication UI (3%) - [Reference](https://shop.upsu.net/account/login)
 
 ### Intermediate (35%)
-- [ ] Navigation (3%) - All pages
-- [ ] Dynamic Collections Page (6%) - [Reference](https://shop.upsu.net/collections/)
+- [x] Navigation (3%) - All pages
+- [x] Dynamic Collections Page (6%) - [Reference](https://shop.upsu.net/collections/)
 - [ ] Dynamic Collection Page (6%) - [Reference](https://shop.upsu.net/collections/autumn-favourites)
 - [ ] Functional Product Pages (6%) - [Reference](https://shop.upsu.net/collections/autumn-favourites/products/classic-sweatshirt-1)
 - [ ] Shopping Cart (6%) - [Reference](https://shop.upsu.net/cart)

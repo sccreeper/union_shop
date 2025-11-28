@@ -49,6 +49,8 @@ final _router = GoRouter(routes: [
 ]);
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+
   ProductRepository.instance.loadProducts();
   CollectionRepository.instance.loadCollections(); // collections repository is dependent on products.
 

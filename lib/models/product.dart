@@ -28,11 +28,14 @@ class Product {
   }
 
   factory Product.fromJson(Map<String, dynamic> json) => Product(
-    name: json["name"], 
-    description: json["description"], 
-    rrp: json["rrp"],
-    salePrice: json["salePrice"], 
-    id: json["id"], 
-    productAttributes: json["productAttributes"] as Map<String, Map<String, String>>
-  );
+      name: json["name"],
+      description: json["description"],
+      rrp: json["rrp"],
+      salePrice: json["salePrice"],
+      id: json["id"],
+      productAttributes: (json["productAttributes"] as Map<String, dynamic>)
+          .map((k, v) => MapEntry(
+              k,
+              (v as Map<String, dynamic>).map(
+                  (innerK, innerV) => MapEntry(innerK, innerV.toString())))));
 }

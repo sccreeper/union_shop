@@ -17,7 +17,8 @@ class Collection {
         id: json["id"],
         title: json["title"],
         description: json["description"],
-        products: (json["products"] as List<String>)
+        products: (json["products"] as List<dynamic>)
+            .map((v) => v.toString())
             .map((e) => ProductRepository.instance.getProduct(e))
             .whereType<Product>()
             .toList(),
