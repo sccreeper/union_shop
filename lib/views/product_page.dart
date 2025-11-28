@@ -28,7 +28,7 @@ class ProductPage extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
                   child: Image.asset(
-                    "assets/images/products/${product.id}.png",
+                    "assets/images/products/${product.imageNames[0]}.png",
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
                       return Container(

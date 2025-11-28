@@ -1,5 +1,6 @@
 [{
     "id" : "sweater-1",
+    "imageNames" : ["sweater-1"],
     "name" : "Big Sweater",
     "description" : "A big comfortable sweater",
     "rrp" : 10.00,
@@ -16,6 +17,7 @@
 },
 {
     "id" : "t-shirt-1",
+    "imageNames" : ["t-shirt-1"],
     "name" : "UOP T Shirt",
     "description" : "Cotton fabric T shirt. Machine washable.",
     "rrp" : 7.50,
@@ -37,6 +39,7 @@
 },
 {
     "id" : "notebook-1",
+    "imageNames" : ["notebook-1"],
     "name" : "University Notebook",
     "description" : "A5 lined notebook with university logo",
     "rrp" : 3.50,
@@ -51,6 +54,7 @@
 },
 {
     "id" : "mug-1",
+    "imageNames" : ["mug-1-burgundy", "mug-1-white", "mug-1-navy"],
     "name" : "Campus Mug",
     "description" : "Ceramic mug perfect for coffee or tea",
     "rrp" : 6.99,
@@ -69,6 +73,7 @@
 },
 {
     "id" : "pen-set-1",
+    "imageNames" : ["pen-set-1"],
     "name" : "Ballpoint Pen Set",
     "description" : "Pack of 5 ballpoint pens",
     "rrp" : 2.50,
@@ -83,6 +88,7 @@
 },
 {
     "id" : "water-bottle-1",
+    "imageNames" : ["water-bottle-1"],
     "name" : "Reusable Water Bottle",
     "description" : "500ml stainless steel water bottle",
     "rrp" : 12.00,
@@ -98,6 +104,7 @@
 },
 {
     "id" : "tote-bag-1",
+    "imageNames" : ["tote-bag-1"],
     "name" : "Canvas Tote Bag",
     "description" : "Eco-friendly canvas tote with university branding",
     "rrp" : 8.50,
@@ -112,6 +119,7 @@
 },
 {
     "id" : "scarf-1",
+    "imageNames" : ["scarf-1"],
     "name" : "University Scarf",
     "description" : "Knitted scarf in university colors",
     "rrp" : 15.00,
@@ -125,6 +133,7 @@
 },
 {
     "id" : "sticky-notes-1",
+    "imageNames" : ["sticky-notes-1"],
     "name" : "Sticky Notes Set",
     "description" : "Multicolor sticky notes in various sizes",
     "rrp" : 4.50,
@@ -139,6 +148,7 @@
 },
 {
     "id" : "lanyard-1",
+    "imageNames" : ["lanyard-1"],
     "name" : "ID Lanyard",
     "description" : "University branded lanyard with ID holder",
     "rrp" : 3.00,
@@ -153,6 +163,7 @@
 },
 {
     "id" : "badge-pin-1",
+    "imageNames" : ["badge-pin-1-crest", "badge-pin-1-mascot", "badge-pin-1-motto"],
     "name" : "Enamel Pin Badge",
     "description" : "Collectible enamel pin with university crest",
     "rrp" : 4.00,
@@ -167,6 +178,7 @@
 },
 {
     "id" : "planner-1",
+    "imageNames" : ["planner-1"],
     "name" : "Academic Year Planner",
     "description" : "12-month planner for organizing coursework",
     "rrp" : 11.50,
@@ -185,6 +197,7 @@
 },
 {
     "id" : "keychain-1",
+    "imageNames" : ["keychain-1"],
     "name" : "University Keychain",
     "description" : "Metal keychain with university logo",
     "rrp" : 5.00,
@@ -198,6 +211,7 @@
 },
 {
     "id" : "cap-1",
+    "imageNames" : ["cap-1"],
     "name" : "Baseball Cap",
     "description" : "Adjustable baseball cap with embroidered logo",
     "rrp" : 14.00,
@@ -212,6 +226,7 @@
 },
 {
     "id" : "folder-1",
+    "imageNames" : ["folder-1"],
     "name" : "Ring Binder Folder",
     "description" : "A4 ring binder with university branding",
     "rrp" : 5.50,
@@ -231,6 +246,7 @@
 },
 {
     "id" : "pencil-case-1",
+    "imageNames" : ["pencil-case-1"],
     "name" : "Pencil Case",
     "description" : "Zippered pencil case with multiple compartments",
     "rrp" : 6.00,

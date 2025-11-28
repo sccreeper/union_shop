@@ -22,7 +22,7 @@ class ProductCard extends StatelessWidget {
         children: [
           Expanded(
             child: Image.asset(
-              "assets/images/products/${product.id}.png",
+              "assets/images/products/${product.imageNames[0]}.png",
               fit: BoxFit.cover,
               errorBuilder: (context, error, stackTrace) {
                 return Container(

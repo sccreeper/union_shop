@@ -4,6 +4,7 @@ class Product {
   final double rrp;
   final double salePrice;
   final String id;
+  final List<String> imageNames;
 
   final Map<String, Map<String, String>> productAttributes;
 
@@ -13,6 +14,7 @@ class Product {
       required this.rrp,
       required this.id,
       required this.productAttributes,
+      required this.imageNames,
       this.salePrice = 0.00});
 
   double get truePrice {
@@ -33,6 +35,7 @@ class Product {
       rrp: json["rrp"],
       salePrice: json["salePrice"],
       id: json["id"],
+      imageNames: (json["imageNames"] as List<dynamic>).map((v) => v.toString()).toList(),
       productAttributes: (json["productAttributes"] as Map<String, dynamic>)
           .map((k, v) => MapEntry(
               k,
