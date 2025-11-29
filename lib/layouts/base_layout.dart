@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:union_shop/models/cart.dart';
 import 'package:union_shop/repositories/collection_repository.dart';
 
 class BaseLayout extends StatelessWidget {
@@ -24,13 +26,15 @@ class BaseLayout extends StatelessWidget {
             ),
             ExpansionTile(
               title: const Text("Shop"),
-              children:
-                CollectionRepository.instance.getCollectionList().map((v) => ListTile(
-                  title: Text(v.title),
-                  onTap: () {
-                    context.go("/collection/${v.id}");
-                  },
-                )).toList(),
+              children: CollectionRepository.instance
+                  .getCollectionList()
+                  .map((v) => ListTile(
+                        title: Text(v.title),
+                        onTap: () {
+                          context.go("/collection/${v.id}");
+                        },
+                      ))
+                  .toList(),
             ),
             ListTile(title: const Text("The Print Shack"), onTap: () {}),
             ListTile(
@@ -131,21 +135,11 @@ class BaseLayout extends StatelessWidget {
                                           minWidth: 32,
                                           minHeight: 32,
                                         ),
-                                        onPressed: () { context.go("/login"); },
+                                        onPressed: () {
+                                          context.go("/login");
+                                        },
                                       ),
-                                      IconButton(
-                                        icon: const Icon(
-                                          Icons.shopping_bag_outlined,
-                                          size: 18,
-                                          color: Colors.grey,
-                                        ),
-                                        padding: const EdgeInsets.all(8),
-                                        constraints: const BoxConstraints(
-                                          minWidth: 32,
-                                          minHeight: 32,
-                                        ),
-                                        onPressed: () {},
-                                      ),
+                                      _CartButton(),
                                       IconButton(
                                         icon: const Icon(
                                           Icons.menu,
@@ -181,44 +175,88 @@ class BaseLayout extends StatelessWidget {
 
                   // Footer
                   Container(
-                    width: double.infinity,
-                    color: Colors.grey[50],
-                    padding: const EdgeInsets.all(24),
-                    child: Column(
-                      spacing: 8.0,
-                      children: [
-                        Column(
-                          spacing: 4.0,
-                          children: [
-                            Text("Opening Hours", style: TextTheme.of(context).titleMedium),
-                            const Text("Term Time\nMonday - Friday 9am - 4pm"),
-                            const Text("Outside of Term Time\nMonday - Friday 9am - 3pm"),
-                            const Text("Purchase online 24/7"),
-                          ],
-                        ),
-                        Column(
-                          spacing: 4.0,
-                          children: [
-                            Text("Help and information", style: TextTheme.of(context).titleMedium,),
-                            TextButton(
-                              onPressed: () => context.go("/search"), 
-                              child: const Text("Search")
-                            ),
-                            TextButton(
-                              onPressed: () => {}, 
-                              child: const Text("Terms & Conditions of Sale Policy")
-                            )
-                          ],
-                        )
-                      ],
-                    )
-                  ),
+                      width: double.infinity,
+                      color: Colors.grey[50],
+                      padding: const EdgeInsets.all(24),
+                      child: Column(
+                        spacing: 8.0,
+                        children: [
+                          Column(
+                            spacing: 4.0,
+                            children: [
+                              Text("Opening Hours",
+                                  style: TextTheme.of(context).titleMedium),
+                              const Text(
+                                  "Term Time\nMonday - Friday 9am - 4pm"),
+                              const Text(
+                                  "Outside of Term Time\nMonday - Friday 9am - 3pm"),
+                              const Text("Purchase online 24/7"),
+                            ],
+                          ),
+                          Column(
+                            spacing: 4.0,
+                            children: [
+                              Text(
+                                "Help and information",
+                                style: TextTheme.of(context).titleMedium,
+                              ),
+                              TextButton(
+                                  onPressed: () => context.go("/search"),
+                                  child: const Text("Search")),
+                              TextButton(
+                                  onPressed: () => {},
+                                  child: const Text(
+                                      "Terms & Conditions of Sale Policy"))
+                            ],
+                          )
+                        ],
+                      )),
                 ],
               ),
             ),
           );
         },
       ),
+    );
+  }
+}
+
+// Split out to avoid rebuilding widget tree every time the cart updates
+class _CartButton extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() => _ClassButtonState();
+}
+
+class _ClassButtonState extends State<_CartButton> {
+  @override
+  void initState() {
+    super.initState();
+
+    final Cart cart = Provider.of<Cart>(context, listen: false);
+    cart.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      icon: Badge.count(
+        count: Provider.of<Cart>(context).totalItems,
+        child: const Icon(
+          Icons.shopping_bag_outlined,
+          size: 18,
+          color: Colors.grey,
+        ),
+      ),
+      padding: const EdgeInsets.all(8),
+      constraints: const BoxConstraints(
+        minWidth: 32,
+        minHeight: 32,
+      ),
+      onPressed: () {
+        context.go("/cart");
+      },
     );
   }
 }

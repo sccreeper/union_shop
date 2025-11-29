@@ -62,9 +62,9 @@ class Cart extends ChangeNotifier {
 
   int get length => _items.length;
   bool get isEmpty => _items.isEmpty;
+  int get totalItems => _items.fold(
+      0, (previousValue, element) => previousValue += element.quantity);
 
-  double get totalPrice => _items.fold(
-      0.00,
-      (previousValue, element) =>
-          previousValue + element.product.truePrice);
+  double get totalPrice => _items.fold(0.00,
+      (previousValue, element) => previousValue + element.product.truePrice);
 }
