@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:union_shop/layouts/base_layout.dart';
+import 'package:union_shop/models/cart.dart';
 import 'package:union_shop/repositories/collection_repository.dart';
 import 'package:union_shop/repositories/product_repository.dart';
 import 'package:union_shop/views/collection_page.dart';
@@ -84,13 +86,16 @@ class UnionShopApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp.router(
-      title: 'Union Shop',
-      debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
+    return ChangeNotifierProvider(
+      create: (_) => Cart(),
+      child: MaterialApp.router(
+        title: 'Union Shop',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4d2963)),
+        ),
+        routerConfig: _router,
       ),
-      routerConfig: _router,
     );
   }
 }

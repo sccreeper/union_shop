@@ -31,6 +31,11 @@ class Cart extends ChangeNotifier {
     _items = [];
   }
 
+  void addItem(CartItem item) {
+    _items.add(item);
+    notifyListeners();
+  }
+
   CartItem getItem(int index) {
     return _items[index];
   }

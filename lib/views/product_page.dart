@@ -1,11 +1,70 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:union_shop/models/cart.dart';
 import 'package:union_shop/models/product.dart';
 import 'package:union_shop/widgets/slideshow_widget.dart';
 
-class ProductPage extends StatelessWidget {
+class ProductPage extends StatefulWidget {
   final Product product;
 
   const ProductPage({super.key, required this.product});
+
+  @override
+  State<StatefulWidget> createState() => _ProductPageState();
+}
+
+class _ProductPageState extends State<ProductPage> {
+  int quantity = 1;
+  Map<String, String> selectedAttributes = {};
+
+  @override
+  void initState() {
+    super.initState();
+
+    for (var entry in widget.product.productAttributes.entries) {
+      if (entry.value.isNotEmpty) {
+        selectedAttributes[entry.key] = entry.value.keys.first;
+      }
+    }
+  }
+
+  void _addToCart() {
+    final Cart cart = Provider.of<Cart>(context, listen: false);
+    cart.addItem(CartItem(
+        product: widget.product,
+        attributes: selectedAttributes,
+        quantity: quantity));
+
+    final SnackBar snackBar = SnackBar(
+      content: Text("Added ${quantity} ${widget.product.name} to cart"),
+      action: SnackBarAction(
+          label: "View cart",
+          onPressed: () {
+            context.go("/cart");
+          }),
+    );
+
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+  }
+
+  void _increaseQuantity() {
+    setState(() {
+      quantity++;
+    });
+  }
+
+  void _decreaseQuantity() {
+    setState(() {
+      if (quantity - 1 > 0) {
+        quantity--;
+      }
+    });
+  }
+
+  void _setAttribute(String key, String value) {
+    selectedAttributes[key] = value;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,9 +87,9 @@ class ProductPage extends StatelessWidget {
                 ),
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(8),
-                  child: product.imageNames.length == 1
+                  child: widget.product.imageNames.length == 1
                       ? Image.asset(
-                          "assets/images/products/${product.imageNames[0]}.png",
+                          "assets/images/products/${widget.product.imageNames[0]}.png",
                           fit: BoxFit.cover,
                           errorBuilder: (context, error, stackTrace) {
                             return Container(
@@ -55,7 +114,7 @@ class ProductPage extends StatelessWidget {
                             );
                           },
                         )
-                      : Slideshow(imagePaths: product.imagePaths),
+                      : Slideshow(imagePaths: widget.product.imagePaths),
                 ),
               ),
 
@@ -63,7 +122,7 @@ class ProductPage extends StatelessWidget {
 
               // Product name
               Text(
-                product.name,
+                widget.product.name,
                 style: const TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
@@ -77,23 +136,26 @@ class ProductPage extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "£${product.rrp.toStringAsFixed(2)}",
+                    "£${widget.product.rrp.toStringAsFixed(2)}",
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
-                      color: product.onSale ? Colors.grey : Colors.black,
-                      decoration: product.onSale ? TextDecoration.lineThrough : null,
+                      color: widget.product.onSale ? Colors.grey : Colors.black,
+                      decoration: widget.product.onSale
+                          ? TextDecoration.lineThrough
+                          : null,
                     ),
                   ),
-                  if (product.onSale) ...[
-                    const SizedBox(width: 8,),
+                  if (widget.product.onSale) ...[
+                    const SizedBox(
+                      width: 8,
+                    ),
                     Text(
-                      "£${product.salePrice.toStringAsFixed(2)}",
+                      "£${widget.product.salePrice.toStringAsFixed(2)}",
                       style: const TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.red
-                      ),
+                          fontSize: 24,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.red),
                     )
                   ]
                 ],
@@ -102,8 +164,8 @@ class ProductPage extends StatelessWidget {
               const SizedBox(height: 24),
 
               // Product attributes
-              if (product.productAttributes.isNotEmpty)
-                ...product.productAttributes.entries.map((attribute) {
+              if (widget.product.productAttributes.isNotEmpty)
+                ...widget.product.productAttributes.entries.map((attribute) {
                   return Padding(
                     padding: const EdgeInsets.only(bottom: 16),
                     child: Column(
@@ -132,7 +194,9 @@ class ProductPage extends StatelessWidget {
                             );
                           }).toList(),
                           onChanged: (value) {
-                            // Handle selection change
+                            if (value != null) {
+                              _setAttribute(attribute.key, value);
+                            }
                           },
                         ),
                       ],
@@ -151,7 +215,7 @@ class ProductPage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Text(
-                product.description,
+                widget.product.description,
                 style: const TextStyle(
                   fontSize: 16,
                   color: Colors.grey,
@@ -167,13 +231,18 @@ class ProductPage extends StatelessWidget {
               Row(
                 spacing: 4.0,
                 children: [
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
-                  const Text("0"),
-                  IconButton(onPressed: () {}, icon: const Icon(Icons.remove))
+                  IconButton(
+                      onPressed: _increaseQuantity,
+                      icon: const Icon(Icons.add)),
+                  Text(quantity.toString()),
+                  IconButton(
+                      onPressed: _decreaseQuantity,
+                      icon: const Icon(Icons.remove))
                 ],
               ),
 
-              ElevatedButton(onPressed: () {}, child: const Text("Add to cart"))
+              ElevatedButton(
+                  onPressed: _addToCart, child: const Text("Add to cart"))
             ],
           ),
         ),
