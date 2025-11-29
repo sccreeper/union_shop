@@ -16,7 +16,7 @@ class CartItem {
   int get quantity => _quantity;
 
   set quantity(v) {
-    if (v < 0) {
+    if (v < 1) {
       return;
     }
 
@@ -65,6 +65,10 @@ class Cart extends ChangeNotifier {
   int get totalItems => _items.fold(
       0, (previousValue, element) => previousValue += element.quantity);
 
-  double get totalPrice => _items.fold(0.00,
-      (previousValue, element) => previousValue + element.product.truePrice);
+  List<CartItem> get items => [..._items];
+
+  double get totalPrice => _items.fold(
+      0.00,
+      (previousValue, element) =>
+          previousValue + (element.product.truePrice * element.quantity));
 }

@@ -20,7 +20,7 @@ Repository containing the code for the Flutter Coursework as part of the *Progra
 - [x] Dynamic Collections Page (6%) - [Reference](https://shop.upsu.net/collections/)
 - [x] Dynamic Collection Page (6%) - [Reference](https://shop.upsu.net/collections/autumn-favourites)
 - [x] Functional Product Pages (6%) - [Reference](https://shop.upsu.net/collections/autumn-favourites/products/classic-sweatshirt-1)
-- [ ] Shopping Cart (6%) - [Reference](https://shop.upsu.net/cart)
+- [x] Shopping Cart (6%) - [Reference](https://shop.upsu.net/cart)
 - [ ] Print Shack (3%) - [Reference](https://shop.upsu.net/products/personalise-text)
 - [ ] Responsiveness (5%) - All pages
 

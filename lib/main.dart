@@ -4,6 +4,7 @@ import 'package:union_shop/layouts/base_layout.dart';
 import 'package:union_shop/models/cart.dart';
 import 'package:union_shop/repositories/collection_repository.dart';
 import 'package:union_shop/repositories/product_repository.dart';
+import 'package:union_shop/views/cart_page.dart';
 import 'package:union_shop/views/collection_page.dart';
 import 'package:union_shop/views/collections_page.dart';
 import 'package:union_shop/views/error_page.dart';
@@ -74,6 +75,10 @@ void main() async {
               GoRoute(
                 path: '/login',
                 builder: (context, state) => const LoginPage(),
+              ),
+              GoRoute(
+                path: "/cart",
+                builder: (context, state) => CartPage(),
               )
             ])
       ]);
