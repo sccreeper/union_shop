@@ -40,7 +40,7 @@ class BaseLayout extends StatelessWidget {
             ListTile(
               title: const Text("Sale"),
               onTap: () {
-                context.go("/collection/sale-items");
+                context.go("/collection/sale");
               },
             ),
             ListTile(
