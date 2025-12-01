@@ -66,14 +66,17 @@ class BaseLayout extends StatelessWidget {
                     child: Column(
                       children: [
                         // Top banner
-                        Container(
-                          width: double.infinity,
-                          padding: const EdgeInsets.symmetric(vertical: 8),
-                          color: const Color(0xFF4d2963),
-                          child: const Text(
-                            'Union Shop',
-                            textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.white, fontSize: 16),
+                        GestureDetector(
+                          onTap: () {context.go("/collection/sale");},
+                          child: Container(
+                            width: double.infinity,
+                            padding: const EdgeInsets.symmetric(vertical: 8),
+                            color: const Color(0xFF4d2963),
+                            child: const Text(
+                              'SALE!',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(color: Colors.white, fontSize: 16),
+                            ),
                           ),
                         ),
 
