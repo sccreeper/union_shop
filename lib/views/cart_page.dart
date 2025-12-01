@@ -15,26 +15,34 @@ class _CartPageState extends State<CartPage> {
 
     final Cart cart = Provider.of<Cart>(context, listen: false);
     cart.addListener(() {
-      setState(() {});
+      if (mounted) {
+        setState(() {});
+      }
     });
   }
 
   void _increaseQuantity(int index) {
+    if (!mounted) return;
     final Cart cart = Provider.of<Cart>(context, listen: false);
-    cart.setQuantity(index, cart.getQuantity(index) + 1);
-    setState(() {});
+    setState(() {
+      cart.setQuantity(index, cart.getQuantity(index) + 1);
+    });
   }
 
   void _decreaseQuantity(int index) {
+    if (!mounted) return;
     final Cart cart = Provider.of<Cart>(context, listen: false);
-    cart.setQuantity(index, cart.getQuantity(index) - 1);
-    setState(() {});
+    setState(() {
+      cart.setQuantity(index, cart.getQuantity(index) - 1);
+    });
   }
 
   void _removeItem(int index) {
+    if (!mounted) return;
     final Cart cart = Provider.of<Cart>(context, listen: false);
-    cart.removeItem(index);
-    setState(() {});
+    setState(() {
+      cart.removeItem(index);
+    });
   }
 
   @override
@@ -78,7 +86,8 @@ class _CartPageState extends State<CartPage> {
                     const Spacer(),
                     Row(
                       children: [
-                        Text("£${v.product.truePrice.toStringAsFixed(2)} x ${v.quantity} (£${v.product.truePrice.toStringAsFixed(2)})"),
+                        Text(
+                            "£${v.product.truePrice.toStringAsFixed(2)} x ${v.quantity} (£${(v.product.truePrice * v.quantity).toStringAsFixed(2)})"),
                         const SizedBox(
                           width: 2.0,
                         ),
