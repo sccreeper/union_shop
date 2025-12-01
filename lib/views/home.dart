@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 import 'package:union_shop/repositories/product_repository.dart';
+import 'package:union_shop/widgets/header_slideshow.dart';
 import 'package:union_shop/widgets/product_card_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -11,79 +11,29 @@ class HomeScreen extends StatelessWidget {
     return Column(
       children: [
         // Hero Section
-        SizedBox(
-          height: 400,
-          width: double.infinity,
-          child: Stack(
-            children: [
-              // Background image
-              Positioned.fill(
-                child: Container(
-                  decoration: const BoxDecoration(
-                    image: DecorationImage(
-                      image: NetworkImage(
-                        'https://shop.upsu.net/cdn/shop/files/PortsmouthCityPostcard2_1024x1024@2x.jpg?v=1752232561',
-                      ),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                  child: Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black.withValues(alpha: 0.7),
-                    ),
-                  ),
-                ),
-              ),
-              // Content overlay
-              Positioned(
-                left: 24,
-                right: 24,
-                top: 80,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    const Text(
-                      'Student Union Shop',
-                      style: TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.white,
-                        height: 1.2,
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    const Text(
-                      "Shop student union merchandise",
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white,
-                        height: 1.5,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
-                    const SizedBox(height: 32),
-                    ElevatedButton(
-                      onPressed: () {
-                        context.go("/collections");
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: const Color(0xFF4d2963),
-                        foregroundColor: Colors.white,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.zero,
-                        ),
-                      ),
-                      child: const Text(
-                        'BROWSE PRODUCTS',
-                        style: TextStyle(fontSize: 14, letterSpacing: 1),
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
+        const SizedBox(
+            height: 400,
+            width: double.infinity,
+            child: HeaderSlideshow(slideshowItems: [
+              HeaderSlideshowItem(
+                  title: "Union Shop",
+                  subtitle: "Shop union merchandise",
+                  buttonText: "Shop now",
+                  route: "/collections",
+                  imagePath: "assets/images/products/badge-pin-1-crest.png"),
+              HeaderSlideshowItem(
+                  title: "Sale",
+                  subtitle: "Up to 50% off",
+                  buttonText: "Shop sale",
+                  route: "/collection/sale",
+                  imagePath: "assets/images/products/cap-1.png"),
+              HeaderSlideshowItem(
+                  title: "Clothing",
+                  subtitle: "Get some union clothing",
+                  buttonText: "Shop clothing",
+                  route: "/collection/clothing",
+                  imagePath: "assets/images/products/t-shirt-1.png")
+            ])),
 
         // Products Section
         Container(
