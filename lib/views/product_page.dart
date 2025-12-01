@@ -186,6 +186,7 @@ class _ProductPageState extends State<ProductPage> {
                               vertical: 12,
                             ),
                           ),
+                          initialValue: attribute.value.entries.first.key,
                           hint: Text('Select ${attribute.key}'),
                           items: attribute.value.entries.map((option) {
                             return DropdownMenuItem<String>(
