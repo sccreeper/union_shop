@@ -26,5 +26,5 @@ Repository containing the code for the Flutter Coursework as part of the *Progra
 
 ### Advanced (25%)
 - [ ] Authentication System (8%) - [Reference](https://shop.upsu.net/account)
-- [ ] Cart Management (6%) - [Reference](https://shop.upsu.net/cart)
+- [x] Cart Management (6%) - [Reference](https://shop.upsu.net/cart)
 - [ ] Search System (4%) - [Reference](https://shop.upsu.net/search)
