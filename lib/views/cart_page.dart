@@ -45,6 +45,16 @@ class _CartPageState extends State<CartPage> {
     });
   }
 
+  void _checkout() {
+    ScaffoldMessenger.of(context)
+        .showSnackBar(const SnackBar(content: Text("Order placed!")));
+
+    context.go("/");
+
+    final Cart cart = Provider.of<Cart>(context, listen: false);
+    cart.clear();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -120,7 +130,9 @@ class _CartPageState extends State<CartPage> {
             }).toList(),
             Text("${Provider.of<Cart>(context).totalItems} items"),
             Text(
-                "Total: £${Provider.of<Cart>(context).totalPrice.toStringAsFixed(2)}")
+                "Total: £${Provider.of<Cart>(context).totalPrice.toStringAsFixed(2)}"),
+            const SizedBox(height: 8,),
+            ElevatedButton(onPressed: _checkout, child: const Text("Checkout"))
           ]
         ],
       ),
