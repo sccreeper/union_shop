@@ -11,6 +11,7 @@ import 'package:union_shop/views/error_page.dart';
 import 'package:union_shop/views/login_page.dart';
 import 'package:union_shop/views/product_page.dart';
 import 'package:go_router/go_router.dart';
+import 'package:union_shop/views/search_page.dart';
 import 'views/home.dart';
 import 'views/about.dart';
 
@@ -79,6 +80,10 @@ void main() async {
               GoRoute(
                 path: "/cart",
                 builder: (context, state) => CartPage(),
+              ),
+              GoRoute(
+                path: "/search",
+                builder: (context, state) => const SearchPage(),
               )
             ])
       ]);
