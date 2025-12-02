@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 import 'package:union_shop/models/cart.dart';
+import 'package:union_shop/repositories/product_repository.dart';
 
 class CartPage extends StatefulWidget {
   @override
@@ -90,7 +91,7 @@ class _CartPageState extends State<CartPage> {
                         Text(v.attributes.entries.fold(
                             "",
                             (previousValue, element) =>
-                                "$previousValue ${element.key} ${element.value}, "))
+                                "$previousValue ${element.key} ${v.product.productAttributes[element.key]![element.value]}, "))
                       ],
                     ),
                     const Spacer(),
