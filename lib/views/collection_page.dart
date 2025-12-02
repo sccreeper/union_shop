@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:union_shop/models/collection.dart';
 import 'package:union_shop/models/product.dart';
+import 'package:union_shop/widgets/paginated.dart';
 import 'package:union_shop/widgets/product_card_widget.dart';
 
 enum FilterBy {
@@ -67,10 +68,9 @@ class _CollectionPageState extends State<CollectionPage> {
   }
 
   void _sort(SortBy sortMode) {
-
     _sortBy = sortMode;
 
-    _productsCopy.sort((a,b) {
+    _productsCopy.sort((a, b) {
       switch (_sortBy) {
         case SortBy.priceLowHigh:
           return a.truePrice.compareTo(b.truePrice);
@@ -86,7 +86,6 @@ class _CollectionPageState extends State<CollectionPage> {
     });
 
     setState(() {});
-
   }
 
   @override
@@ -122,7 +121,9 @@ class _CollectionPageState extends State<CollectionPage> {
                     SizedBox(
                       width: 150,
                       child: DropdownButtonFormField<FilterBy>(
-                        onChanged: (value) {_filter(value ?? FilterBy.allProducts);},
+                        onChanged: (value) {
+                          _filter(value ?? FilterBy.allProducts);
+                        },
                         initialValue: _filterBy,
                         items: _buildFilterByEntries(),
                         hint: const Text("Filter By"),
@@ -131,7 +132,9 @@ class _CollectionPageState extends State<CollectionPage> {
                     SizedBox(
                       width: 150,
                       child: DropdownButtonFormField<SortBy>(
-                        onChanged: (value) {_sort(value ?? SortBy.priceLowHigh);},
+                        onChanged: (value) {
+                          _sort(value ?? SortBy.priceLowHigh);
+                        },
                         initialValue: _sortBy,
                         items: _buildSortByEntries(),
                         hint: const Text("Sort By"),
@@ -146,18 +149,12 @@ class _CollectionPageState extends State<CollectionPage> {
           const SizedBox(
             height: 4.0,
           ),
-          GridView.count(
-              primary: false,
-              shrinkWrap: true,
-              physics: const NeverScrollableScrollPhysics(),
-              crossAxisCount: 2,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
+          Paginated(
               children: _productsCopy
                   .map((v) => ProductCard(
                         product: v,
                       ))
-                  .toList())
+                  .toList()),
         ],
       ),
     );
