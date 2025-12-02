@@ -37,7 +37,7 @@ class _ProductPageState extends State<ProductPage> {
         quantity: quantity));
 
     final SnackBar snackBar = SnackBar(
-      content: Text("Added ${quantity} ${widget.product.name} to cart"),
+      content: Text("Added $quantity ${widget.product.name} to cart"),
       action: SnackBarAction(
           label: "View cart",
           onPressed: () {

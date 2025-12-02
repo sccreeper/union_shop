@@ -79,7 +79,7 @@ void main() async {
               ),
               GoRoute(
                 path: "/cart",
-                builder: (context, state) => CartPage(),
+                builder: (context, state) => const CartPage(),
               ),
               GoRoute(
                 path: "/search",
