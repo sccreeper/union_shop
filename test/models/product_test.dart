@@ -1,5 +1,25 @@
+import 'dart:convert';
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:union_shop/models/product.dart';
+
+const String productJsonString = '''{
+    "id" : "sweater-1",
+    "imageNames" : ["sweater-1"],
+    "name" : "Big Sweater",
+    "description" : "A big comfortable sweater",
+    "rrp" : 10.00,
+    "salePrice" : 0.00,
+    "productAttributes" : {
+        "size" : {
+            "xl" : "XL",
+            "l" : "L",
+            "m" : "M",
+            "s" : "S",
+            "xs" : "XS"
+        }
+    }
+}''';
 
 void main() {
   group("product tests", () {
@@ -28,6 +48,18 @@ void main() {
 
       expect(product.onSale, true);
       expect(product.truePrice, 5.00);
+    });
+
+    test("json deserialize", () {
+      Map<String, dynamic> productData = json.decode(productJsonString);
+      final Product product = Product.fromJson(productData);
+
+      expect(product.name, "Big Sweater");
+      expect(product.description, "A big comfortable sweater");
+      expect(product.rrp, 10.00);
+      expect(product.productAttributes, {
+        "size": {"xl": "XL", "l": "L", "m": "M", "s": "S", "xs": "XS"}
+      });
     });
   });
 }
