@@ -18,6 +18,31 @@ void main() {
     );
     await tester.pumpAndSettle();
 
+    await tester.tap(find.byIcon(Icons.arrow_right));
+    await tester.pumpAndSettle();
+
+    expect(find.text("Page 2 of 3"), findsOne);
+    expect(find.text("Three"), findsOne);
+    expect(find.text("Four"), findsOne);
+
+    await tester.tap(find.byIcon(Icons.arrow_left));
+    await tester.pumpAndSettle();
+
+    expect(find.text("Page 1 of 3"), findsOne);
+    expect(find.text("One"), findsOne);
+    expect(find.text("Two"), findsOne);
+
+    await tester.tap(find.byIcon(Icons.arrow_left));
+    await tester.pumpAndSettle();
+
+    expect(find.text("Page 3 of 3"), findsOne);
+    expect(find.text("Five"), findsOne);
+
+    await tester.tap(find.byIcon(Icons.arrow_right));
+    await tester.pumpAndSettle();
     
+    expect(find.text("Page 1 of 3"), findsOne);
+    expect(find.text("One"), findsOne);
+    expect(find.text("Two"), findsOne);
   });
 }
