@@ -27,6 +27,7 @@ class _SearchPageState extends State<SearchPage> {
       child: Column(
         children: [
           TextField(
+            key: const Key("search-field"),
             decoration: const InputDecoration(
                 border: OutlineInputBorder(), hintText: "Search"),
             onChanged: _search,

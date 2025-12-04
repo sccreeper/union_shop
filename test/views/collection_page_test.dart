@@ -55,7 +55,7 @@ void main() {
 
       expect(find.text("2 Products"), findsOne);
 
-      await tester.tap(find.byKey(Key("filter-by")));
+      await tester.tap(find.byKey(const Key("filter-by")));
       await tester.pumpAndSettle();
 
       await tester.tap(find.text("onSale"));
@@ -78,7 +78,7 @@ void main() {
 
       expect(find.text("2 Products"), findsOne);
 
-      await tester.tap(find.byKey(Key("sort-by")));
+      await tester.tap(find.byKey(const Key("sort-by")));
       await tester.pumpAndSettle();
 
       await tester.tap(find.text("priceHighLow"));
