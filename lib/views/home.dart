@@ -43,7 +43,7 @@ class HomeScreen extends StatelessWidget {
             child: Column(
               children: [
                 const Text(
-                  'PRODUCTS SECTION',
+                  "All Products",
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.black,
