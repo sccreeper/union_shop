@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:union_shop/repositories/collection_repository.dart';
 import 'package:union_shop/repositories/product_repository.dart';
+import 'package:union_shop/widgets/collection_card.dart';
 import 'package:union_shop/widgets/header_slideshow.dart';
 import 'package:union_shop/widgets/product_card_widget.dart';
 
@@ -42,13 +44,9 @@ class HomeScreen extends StatelessWidget {
             padding: const EdgeInsets.all(40.0),
             child: Column(
               children: [
-                const Text(
-                  "All Products",
-                  style: TextStyle(
-                    fontSize: 20,
-                    color: Colors.black,
-                    letterSpacing: 1,
-                  ),
+                Text(
+                  "Product Selection",
+                  style: TextTheme.of(context).headlineMedium,
                 ),
                 const SizedBox(height: 48),
                 GridView.count(
@@ -60,7 +58,34 @@ class HomeScreen extends StatelessWidget {
                     mainAxisSpacing: 48,
                     children: ProductRepository.instance.productEntries
                         .map((v) => ProductCard(product: v))
-                        .toList()),
+                        .toList()
+                        .sublist(0, 4)),
+                const SizedBox(
+                  height: 24,
+                ),
+                Text("Popular Collections",
+                    style: TextTheme.of(context).headlineMedium),
+                const SizedBox(
+                  height: 48,
+                ),
+                GridView.count(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  crossAxisCount:
+                      MediaQuery.of(context).size.width > 600 ? 2 : 1,
+                  crossAxisSpacing: 24,
+                  mainAxisSpacing: 48,
+                  children: CollectionRepository.instance
+                      .getCollectionList()
+                      .map((v) => CollectionCard(
+                          title: v.title,
+                          id: v.id,
+                          backgroundImage: Image.asset(
+                                  "assets/images/collections/${v.id}.png")
+                              .image))
+                      .toList()
+                      .sublist(0, 3),
+                )
               ],
             ),
           ),

@@ -27,9 +27,10 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    expect(find.text("All Products"), findsOne);
+    expect(find.text("Product Selection"), findsOne);
+    expect(find.text("Popular Collections"), findsOne);
 
     expect(tester.widgetList(find.byType(ProductCard)).length,
-        ProductRepository.instance.productEntries.length);
+        4);
   });
 }
