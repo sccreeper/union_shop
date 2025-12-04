@@ -1,4 +1,17 @@
-# Union Shop - Flutter Coursework
+# Union Shop - Flutter Coursework <!-- omit in toc -->
+
+- [Screenshots](#screenshots)
+- [Features](#features)
+- [Getting started](#getting-started)
+  - [Prerequesites](#prerequesites)
+  - [Installation](#installation)
+  - [Run tests](#run-tests)
+- [Project structure](#project-structure)
+- [Libaries used](#libaries-used)
+- [Notes](#notes)
+  - [Commits](#commits)
+  - [Generative AI](#generative-ai)
+
 
 Repository containing the code for the Flutter Coursework as part of the *Programming Applications and Programming Languages* module at the University of Portsmouth.
 
@@ -75,7 +88,13 @@ Tests can be run using `flutter test`. Alternatively, a coverage report can be g
 - go_router - Routing library for navigation
 - provider - Library for managing state
 
-# Generative AI Notes
+# Notes
+
+## Commits
+
+Commits in this repository aim to follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/).
+
+## Generative AI
 
 Two parts of this project were exclusively AI generated: the product images, and the product and collection data.
 
