@@ -121,6 +121,8 @@ class _CollectionPageState extends State<CollectionPage> {
                     SizedBox(
                       width: 150,
                       child: DropdownButtonFormField<FilterBy>(
+                        key: const Key("filter-by"),
+                        isExpanded: true,
                         onChanged: (value) {
                           _filter(value ?? FilterBy.allProducts);
                         },
@@ -132,6 +134,8 @@ class _CollectionPageState extends State<CollectionPage> {
                     SizedBox(
                       width: 150,
                       child: DropdownButtonFormField<SortBy>(
+                        key: const Key("sort-by"),
+                        isExpanded: true,
                         onChanged: (value) {
                           _sort(value ?? SortBy.priceLowHigh);
                         },
