@@ -177,6 +177,7 @@ class _ProductPageState extends State<ProductPage> {
                         ),
                         const SizedBox(height: 8),
                         DropdownButtonFormField<String>(
+                          key: Key("attribute-${attribute.key}"),
                           decoration: InputDecoration(
                             border: OutlineInputBorder(
                               borderRadius: BorderRadius.circular(8),
